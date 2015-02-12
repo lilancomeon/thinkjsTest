@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ManageList</title>
+	<style>
+	th{text-align:left;background:#f9f9f9;line-height:30px;}
+	td{height:30px;line-height:30px;}
+	.add{display:block; margin-bottom:10px;}
+	</style>
+</head>
+<body>
+	<a href="/admin/post/add" class="add">添加</a>
+	<table border="1px" bordercolor="#dddddd" cellspacing="0px" style="border-collapse:collapse;border-color:#dddddd;"  width="50%">
+		<colgroup>
+			<col width="40%">
+			<col width="40%">
+			<col width="20%">
+		</colgroup>
+		<tbody>
+			<tr>
+				<th>标题</th>
+				<th>内容</th>
+				<th>操作</th>
+			</tr>
+			<%list.forEach(function(item){%>
+				<tr>
+					<td>
+						<a href="/post/detail?id=<%=item.id%>"><%=item.title%></a>
+					</td>
+					<td><%=item.content%></td>
+					<td><a href="/admin/post/delete?id=<%=item.id%>">删除</a></td>
+				</tr>
+			<%})%>
+		</tbody>
+	</table>
+</body>
+</html>
